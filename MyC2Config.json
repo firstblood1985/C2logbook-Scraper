@@ -1,0 +1,40 @@
+{
+  "url_log" : "https://log.concept2.com/log",
+  "url_login":"https://log.concept2.com/login",
+  "database": {
+    "user": "root",
+    "password": "12qwaszx",
+    "host": "localhost",
+    "database": "c2visualizer"
+  },
+
+  "to_scrape": {
+    "ranking": {
+      "machine": {
+        "rowerg":{
+          "base_type": "rower",
+          "events" : [1,4,30,60,100,500,1000,2000,5000,6000,10000,21097,42195,100000]
+        },
+        "bikerg": {
+          "base_type": "bikeerg",
+          "events": [1,30,60,200,500,1000,4000,10000,20000,40000,100000]
+        }
+      },
+      "years": ["2021","2022"]
+    },
+    "season_detail":{
+      "years": ["2023"],
+      "machine": [],
+      "workout_details_dir": "workout_details",
+      "workout_details_meta_file": "workout_details_meta_file",
+      "use_softlink": true
+    },
+    "workout_details": {
+      "workout_details_dir": "workout_details",
+      "workout_details_meta_file": "workout_details_meta_file",
+      "workout_details_file": "workout_details_file",
+      "use_softlink": true,
+      "max_pull": 1000
+    }
+  }
+}
