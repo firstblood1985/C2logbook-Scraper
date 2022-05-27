@@ -189,10 +189,11 @@ CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), '{}',{},'{}',{},{},{},{},'{}'
         tree = html.fromstring(text)
         splits_table = tree.xpath(r'//section[@class="content"]/div[@class="row row-data"]/*/*/table')
 
-        for rows in self.scape_table_detail_by_table_tree(splits_table):
-            if rows != []:
-                result = [c.text for c in rows.xpath(r'td')]
-                results.append(result)
+        if splits_table:
+            for rows in self.scape_table_detail_by_table_tree(splits_table):
+                if rows != []:
+                    result = [c.text for c in rows.xpath(r'td')]
+                    results.append(result)
         return results
 
     def scrape_page_details(self, text) -> Iterable:
