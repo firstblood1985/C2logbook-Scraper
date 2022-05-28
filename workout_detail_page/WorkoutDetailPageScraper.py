@@ -132,7 +132,11 @@ CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), '{}',{},'{}',{},{},{},{},'{}'
 
     def __convert_time(self, time):
         # March 27, 2022  12:01:00
-        element = datetime.datetime.strptime(time, "%B %d, %Y  %H:%M:%S ")
+        try:
+            element = datetime.datetime.strptime(time, "%B %d, %Y  %H:%M:%S ")
+        except ValueError:
+            element = datetime.datetime.strptime(time, "%B %d, %Y  ")
+
         return element.strftime("%Y-%m-%d %H:%M:%S")
 
     def __convert_meters(self, meters):
