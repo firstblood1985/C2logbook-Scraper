@@ -121,6 +121,8 @@ CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), '{}',{},'{}',{},{},{},{},'{}'
             self.__complete_result_map(result)
             sqls.append(sql_template_full.format(**result))
             for split in result['splits']:
+                if not split[0]:
+                    continue
                 split[1] = self.__convert_meters(split[1])
                 log_id = result['log_id']
                 if len(split) == 6:  ## no hear rate info
